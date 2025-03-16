@@ -127,15 +127,22 @@ This project is a Node.js server-side application built with NestJS. It includes
     ```
 
 - **Change Password**
+
   - `PATCH /users/:id/change-password`
   - Headers: `Authorization: Bearer faketoken_user1`
   - Body: `ChangePasswordDto`
   - Example:
-    ```bash
-    curl --location --request PATCH 'http://localhost:3000/users/1/change-password' \
-    --header 'Content-Type: application/json' \
-    --data '{
-      "currentPassword": "newPassword123",
-      "newPassword": "1234"
-    }'
-    ```
+    `bash
+curl --location --request PATCH 'http://localhost:3000/users/1/change-password' \
+--header 'Content-Type: application/json' \
+--data '{
+  "currentPassword": "newPassword123",
+  "newPassword": "1234"
+}'
+`
+
+## Database diagram
+
+https://drive.google.com/file/d/12i7u5d-sGJ_Pn1k9nXvH0xg6bY02ZLQX/view
+
+![database diagram](opn-database-design.drawio.png)
