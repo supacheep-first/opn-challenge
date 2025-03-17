@@ -141,6 +141,79 @@ curl --location --request PATCH 'http://localhost:3000/users/1/change-password' 
 }'
 `
 
+### Carts
+
+- **Create Cart**
+
+  - `POST /carts`
+  - Example:
+    ```bash
+    curl -X POST http://localhost:3000/carts -H "Content-Type: application/json" -d '{}'
+    ```
+
+- **Add Products to Active Cart**
+
+  - `POST /carts/products`
+  - Body: `UpdateCartDto`
+  - Example:
+    ```bash
+    curl -X POST http://localhost:3000/carts/products -H "Content-Type: application/json" -d '{
+      "products": [
+        {
+          "id": 1,
+          "productName": "Product 1",
+          "price": 100,
+          "variant": {
+            "productId": 1,
+            "value": "L",
+            "quantity": 1
+          }
+        }
+      ],
+      "discountCode": "DISCOUNT200"
+    }'
+    ```
+
+- **Get All Carts**
+
+  - `GET /carts/all`
+  - Example:
+    ```bash
+    curl -X GET http://localhost:3000/carts/all
+    ```
+
+- **Get Active Cart**
+
+  - `GET /carts`
+  - Example:
+    ```bash
+    curl -X GET http://localhost:3000/carts
+    ```
+
+- **Get Cart by ID**
+
+  - `GET /carts/:id`
+  - Example:
+    ```bash
+    curl -X GET http://localhost:3000/carts/1
+    ```
+
+- **Remove Cart**
+
+  - `DELETE /carts/:id`
+  - Example:
+    ```bash
+    curl -X DELETE http://localhost:3000/carts/1
+    ```
+
+- **Remove Product from Active Cart**
+
+  - `DELETE /carts/product/:id`
+  - Example:
+    ```bash
+    curl -X DELETE http://localhost:3000/carts/product/1
+    ```
+
 ## Database diagram
 
 https://drive.google.com/file/d/12i7u5d-sGJ_Pn1k9nXvH0xg6bY02ZLQX/view
